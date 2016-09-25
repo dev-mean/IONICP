@@ -1,0 +1,135 @@
+<ion-view id="profile" title="Account Setting" class="view">
+<div class="mynavbar-header">
+<div class="row">
+<div class="col-10"><button class="naviconimg" menu-toggle="left"></button></div>
+<div class="col-80"><h2 class="head-wide">POPii</h2></div>
+<div class="col-10"><button class="cartimg " ng-click="checkout()"></button></div>
+</div>
+</div>
+<ion-content has-header="true" padding="true" class="mycontent">
+<div class="mynavbar"><!-- <div class="row"><div class="popii_logo"></div> --></div>
+<h2 class="food-title" ng-click="addDialogGoWellWith()">Account Setting</h2></div> 
+<div class="picture row"> 
+  <!--   <div class="col-20"><div class="button-circle camera" ng-if="IsContainer" ng-click="onCameraTapped()">
+                <span>TAKE PICTURE</span>
+            </div>
+            <div class="button-circle gallery" ng-if="IsContainer" ng-click="onGalleryTapped()">
+                <span>CHOOSE FROM GALLERY</span>
+            </div>
+        </div>  -->         
+<div class="col-45">
+            
+            <div class="pp"  ng-click="onPhotoTapped()">
+                <img ng-src="{{imgURI?imgURI:user.profilePic}}">
+            </div>
+            
+        </div>
+        
+        <div class="col-60">
+            <h3 class="white name-down">{{user.firstName}} {{user.lastName}}</h3>
+        </div>
+        </div>
+        <div class="clear"></div>
+<form  novalidate name="signupForm">
+    <ion-input class="item item-input corner">
+    <i class="icon ion-person"></i>
+    <ion-label>FIRST NAME</ion-label>
+        <input
+        type="text" 
+        class="corner"         
+        placeholder="FIRST NAME" 
+        ng-model="user.firstName"
+        autofocus 
+        
+        validation-min-length="2" 
+        validation-no-space="true" 
+        validation-field-required="true" 
+        validation-max-length="50"
+        validation-live-success-cls="text-success"
+        validation-live-fail-cls="text-error" 
+        >
+    </ion-input>    
+    <ion-input class="item item-input corner">
+    <i class="icon ion-person"></i>
+    <ion-label>LAST NAME</ion-label>
+            <input 
+            type="text"
+            class="corner"
+            placeholder="LAST NAME"
+            ng-model="user.lastName"            
+            validation-min-length="2" 
+            validation-no-space="true" 
+            validation-field-required="true" 
+            validation-max-length="50"
+            />
+</ion-input>    
+    <ion-input class="item item-input corner">
+    <i class="icon ion-email"></i>
+    <ion-label>EMAIL</ion-label>
+        <input 
+        type="email" 
+        class="corner"  
+        placeholder="EMAIL" 
+        ng-model="user.email"
+        readonly 
+            validation-min-length="5" 
+            validation-no-space="true" 
+            validation-field-required="true" 
+            validation-max-length="100"
+            />
+</ion-input>    
+<!--     <ion-input class="item item-input corner">
+    <i class="icon ion-email"></i>
+    <ion-label>CONFIRM EMAIL</ion-label>       
+            <input 
+            type="email" 
+            class="corner" 
+            placeholder="CONFIRM EMAIL" 
+            ng-model="user.confirmEmail"
+            validation-min-length="5" 
+            validation-no-space="true" 
+            validation-field-required="true" 
+            validation-max-length="100"
+            />
+</ion-input>   -->  
+    <ion-input class="item item-input corner">
+    <i class="icon ion-ios-locked-outline ion-android-lock ion-lock-combination"></i>
+    <ion-label>PASSWORD</ion-label>
+            <input 
+            class="corner" 
+            placeholder="PASSWORD" 
+            type="password" 
+            id="password" 
+            name="password" 
+            ng-model="user.password"
+                   validation-min-length="2"
+                   validation-one-number="true"
+                   validation-one-lower-case-letter="true"
+                   validation-field-required="true"
+                   validation-no-space="true"
+            />
+ </ion-input>    
+    <ion-input class="item item-input corner">
+    <i class="icon ion-ios-locked-outline ion-android-lock ion-lock-combination"></i>
+    <ion-label>CONFIRM PASSWORD</ion-label>
+           <input 
+           class="corner" 
+           placeholder="CONFIRM PASSWORD" 
+           type="password" 
+           id="confirmPassword" 
+           name="confirmPassword" 
+                   passwordFieldId="password" 
+                   ng-model="user.confirmPassword"
+                   validation-confirm-password="true"
+                   validation-field-required="true"
+            />
+</ion-input>  
+<ion-input >
+    <button class="button button-block button-dark bg-grey b" ng-click="onSaveTapped(user)">SAVE THE CHANGES</button>
+    <button class="button button-block button-assertive" ng-click="onLogoutTapped()">LOGOUT</button>
+    <a class="policy center" href="http://www.seatedorders.com/#!private-policy/c10t7" ><h3 >Privacy Policy</h3></a>
+</ion-input >
+</form>
+
+    </ion-content>
+</ion-view>

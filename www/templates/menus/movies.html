@@ -1,0 +1,44 @@
+<ion-view view-title="Theater Location" class="view">
+<div class="mynavbar-header">
+<div class="row">
+<div class="col-10"><button class="naviconimg" menu-toggle="left"></button></div>
+<div class="col-80"><h2 class="head-wide">POPii</h2></div>
+<div class="col-10"><button class="cartimg " ng-click="checkout()"></button></div>
+</div>
+</div>
+<div class="mynavbar"><!-- <div class="row"><div class="popii_logo"></div></div> -->
+<h2 class="food-title">Theater Location</h2></div> 
+<div class="row">
+<div class="col-10 refresh"><i class="ion-refresh" ng-click="reload()"></i></div>
+<div class="col-80">
+  <label class="item item-input corner">
+  <input type="search" ng-model="q" placeholder=" Type Name of Movie Theater..." ng-change="IsShows=false" aria-label="filter MovieTheaters" />
+  </label>
+  </div>
+</div>
+<ion-content has-header="true" padding="true" class="TheaterLocationContent">
+  <ion-refresher  pulling-text="Pull to refresh..."  on-refresh="GetData()"></ion-refresher>
+
+<div ng-if="!IsShows">
+  	<ion-list class="animate-repeat" ng-repeat="MovieTheater in MovieTheaters | filter:q as results">
+  	<ion-item class="item item-avatar bg-black white" ng-click="loadShowTimes(MovieTheater)">
+    <img src="{{MovieTheater.Image}}">
+    <h2>{{MovieTheater.TheaterName}}</h2>
+    <p>{{MovieTheater.CompanyName}}</p>
+    <p>{{MovieTheater.Distance}}Miles</p>
+    </ion-item>
+  	</ion-list>
+  </div>
+<div ng-if="IsShows">
+    <ion-list ng-repeat="Show in Shows">
+        <ion-item class="item item-avatar bg-black white"  ng-click="loadFoods(Show.ShowID)">
+        <img src="{{Show.Image}}">
+        <h2 class="white">{{Show.MovieName}}</h2>
+         <div ng-repeat="ShowTime in Show.ShowTime">
+        <p>{{ShowTime}}</p>
+      </div>
+        </ion-item>
+      <ion-list>
+    </div>
+  </ion-content>
+</ion-view>

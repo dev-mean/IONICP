@@ -1,0 +1,96 @@
+<ion-view id="profile" title="Pick Your Food" class="view" ng-click="CheckShowTime()">
+<div class="mynavbar-header">
+<div class="row">
+<div class="col-10"><button class="back" ng-click="back()"></button></div>
+<div class="col-80"><h2 class="head-right"><div  ng-if="IsProccess">Thank you!</div>
+      <div  ng-if="!IsProccess">Ready in 10 Min</div></h2></div>
+</div>
+</div>
+<ion-content  has-header="true" padding="true" class="mycontent" ng-show="!IsProccess">
+ <div class="row">
+</div>
+<div class="row" ng-click="back()">
+<div class="col-25"> </div>
+<div class="col-25"><h3>Edit Cart</h3></div>
+<div class="col-25"><div class='foodicon'></div></div>
+<div class="col-25"> </div>
+</div>
+<div class="row"  ng-click="GetShowsData()">
+
+<div class="col-90"> 
+ <h3 class="white text-middle">{{selectedMovie.MovieName}} {{selectedMovie.ShowTime}}</h3></div>
+ <div class="col-10"><div class='icon-edit'></div></div></div>
+<div class="row no-padding">                    
+ 
+<div class="col no-left-padding">
+    <label class="item item-input item-select delivery-time corner">
+     Pick up <select ng-model="data.deliveryTime" ng-change="addDialogGoWellWith()">
+      <option value="15 min">15 min</option>
+      <option value="20 min">20 min</option>
+      <option value="30 min">30 min</option>
+      </select>
+  </label>
+</div></div>
+<h2 class="white text-middle">Order Info:</h2>
+<div class="row"  ng-repeat="item in cartProducts">
+      <div class="col col-10"><h4 class="white">{{ (item.purchaseQuantity) }}</h4></div>
+      <div class="col col-50"><h4 class="white">{{ item.title }}</h4></div>
+      <div class="col col-20"><h4 class="white">${{ item.price*item.purchaseQuantity | number:2 }}</h4></div>
+      <div class="col-10"><div class='icon-minus' ng-click='minus(item)'></div></div>
+      <div class="col-10"><div class='icon-plus' ng-click='pluse(item)'></div></div>
+</div>
+<hr>
+ <br>
+<div class="row">
+  <div class="col col-50"><h4 class="white">Promo Code:</h4></div>
+  <div class="col col-35"><h4 class="white"><input type="text" ng-model="promocode" /></div>
+  <div class="col col-15"><button class="button button-balanced" ng-click="PromoCodeApply(promocode)">Apply</button></h4></div>
+</div>
+<div class="row" ng-show="IsDiscount">
+  <div class="col col-70"><h4 class="white">Discount</h4></div>
+  <div class="col col-30"><h4 class="white">${{ DiscountAmount  | number:2 }}</h4></div>
+</div>
+<div class="row">
+  <div class="col col-70"><h4 class="white">Total</h4></div>
+  <div class="col col-30"><h4 class="white">${{ cartTotal  | number:2 }}</h4></div>
+</div>
+<div class="row">
+  <div class="col col-70"><h4 class="white">Tax</h4></div>
+  <div class="col col-30"><h4 class="white">${{ TaxAmount  | number:2 }}</h4></div>
+</div>
+<div class="row">
+  <div class="col col-50"></div>
+  <div class="col col-50"><h4 class="white"><b>Total ${{ TotalAmount  | number:2 }}</b></h4></div>
+</div>
+<div class="padding text-center">
+<button class="button button-balanced" ng-click="onProcessCheckoutTapped()" >
+Tap to pay: ${{TotalAmount | number:2 }}
+</button>
+</div></div>
+</ion-content>
+<ion-content  has-header="true" padding="true" class="mycontent" ng-show="IsProccess">
+<div >
+  <br><br>
+<center><h2 class="white text-center">{{OrderNumber}}</h2></center>
+<br><br>
+<div class="padding">
+<div class="text-center">
+  <center><div ng-show="proccessing" class="proccessing"></div>
+    <div ng-show="!proccessing"  class="proccess"></div></center>
+      <h3 ng-show="proccessing" class="white">PROCCESS</h3>
+      <h3 ng-show="!proccessing" class="white">RECIEVED</h3>
+<br><br>
+
+</div>
+<div ng-show="!proccessing" class="text-center">
+  <h4 class="white">Look out for our 
+Notification! </h4>
+  <div  class="outer selected">
+  <div class="inner" />
+you'll receive an email confirmation of your order. 
+<br>
+Please show your order number to retrieve your food.
+</div>
+</div></div>
+</ion-content>
+</ion-view>

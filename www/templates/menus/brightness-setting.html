@@ -1,0 +1,18 @@
+<ion-view  id="profile" view-title="Payment Method" class="view">
+<div class="mynavbar-header">
+<div class="row">
+<div class="col-10"><button class="naviconimg" menu-toggle="left"></button></div>
+<div class="col-80"><h2 class="head-wide">POPii</h2></div>
+<div class="col-10"><button class="cartimg " ng-click="checkout()"></button></div>
+</div>
+</div>
+<ion-content has-header="true" padding="true" class="mycontent">
+<div class="mynavbar"><!-- <div class="row"><div class="popii_logo"></div></div> -->
+<h2 class="food-title">Brightness Setting</h2></div> 
+<div class="item range range-positive">
+    <i class="icon ion-ios-sunny"></i>
+    <input type="range" name="volume" min="5" max="100" ng-model="rangeValue" ng-change="onRelease(rangeValue)">
+    <i class="icon ion-ios-sunny-outline"></i>
+  </div>
+</ion-content>
+</ion-view>

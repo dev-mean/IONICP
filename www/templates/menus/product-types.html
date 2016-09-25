@@ -1,0 +1,26 @@
+<ion-view title="POPii" right-buttons="rightButtons" class="view">
+<div class="mynavbar-header">
+<div class="row">
+<div class="col-10"><button class="naviconimg" ng-click="toggleLeftSideMenu()"></button></div>
+<div class="col-80"><h2 class="head-wide">POPii</h2></div>
+<div class="col-10"><button class="cartimg " ng-click="checkout()"></button></div>
+</div>
+</div>
+<ion-content has-header="true" padding="true" class="mycontent2">
+  <ion-refresher  pulling-text="Pull to refresh..."  on-refresh="GetData()"></ion-refresher>
+<div class="mynavbar">  <div class="row"><div class="popii_logo"></div></div>
+<div class="row" ng-click="onTapGeoPin()" >
+<div class="col-10"><div ng-class="IsFinding" class="imglocation"></div></div>
+<div class="col-90"><p class="food-theater-title">{{ CurrentLocality }}</p><div class="icon ion-edit edit-padding-low" ng-click="GetShowsData()"></div></div>
+
+</div>
+<h2 class="food-title">Pick Your Food</h2></div>
+<div class="foods">
+  <ion-item ng-repeat="productType in productTypes" item="item" item-type="item" ng-click="loadProducts('{{productType.ProductTypeID}}')" class="item item-thumbnail-left rowheader">                         
+              <img src="{{productType.ProductTypeImage}}">
+              <h1 class="food-item-title">{{ productType.ProductTypeName }}</h1>
+  </ion-item>
+</div>
+    </ion-list>
+  </ion-content>
+</ion-view>

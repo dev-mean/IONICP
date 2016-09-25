@@ -1,0 +1,131 @@
+<ion-view  id="profile" view-title="Payment Method" class="view">
+<div class="mynavbar-header">
+<div class="row">
+<div class="col-10"><button class="naviconimg" menu-toggle="left"></button></div>
+<div class="col-80"><h2 class="head-wide">POPii</h2></div>
+<div class="col-10"><button class="cartimg " ng-click="checkout()"></button></div>
+</div>
+</div>
+<ion-content has-header="true" padding="true" class="mycontent">
+<div class="mynavbar"><!-- <div class="row"><div class="popii_logo"></div></div> -->
+<h2 class="food-title">Payment Method</h2></div> 
+ <div class="picture row">
+  <div class="col-40">
+       <div class="pp">
+                <img ng-src="{{profilePic}}">
+            </div>
+    </div>
+  <div class="col-60 payment-method-name-down">
+    <h4 class="white">{{fullName}}</h4>
+  </div>
+ </div>
+ 		<div class="padding" ng-show="!isCreditFormShown">
+         <div class="list a-input creditcard">
+            <h3 class="text-left white">Credit Card</h3>
+            <div class="item item-icon-left no-bg b border-grey">
+                <i class="icon ion-card"></i>XXXX-XXXX-XXXX-{{card.last4}}
+            </div>
+            <div class="padding">
+                    <button class="button button-balanced" ng-click="isCreditFormShown = true" >
+                        Add
+                    </button>
+                    <button class="button button-assertive" ng-click="onDeleteTapped()">
+                        Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+       
+            <form class="paymentForm" name="paymentForm" ng-show="isCreditFormShown">
+                <h3 class="text-left white"> Credit Card Info</h3>
+                <label class="item item-input corner" id="payment-name">
+                    <span>Name on Credit Card: </span>
+                    <input type="text" placeholder="NAME ON CARD" cc-name ng-model="card.name">
+                </label>
+                <label class="item item-input corner" id="payment-cardnumber">
+                    <span>Credit Card Number: </span>
+                    <input type="text" placeholder="CARD NUMBER" cc-number ng-model="card.number">
+                </label>
+                <!-- <div class="row no-padding" cc-exp>                    
+                    <div class="col no-left-padding"> -->
+                        
+                        <label class="item item-input item-select corner" id="payment-exp_month">
+                            <!-- <input type="text" placeholder="EXPIRY MONTH" cc-exp-month ng-model="card.exp_month"> -->
+                              <span>Expiry Month: </span>
+                                    <select ng-model="card.exp_month">
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                      <option value="6">6</option>
+                                      <option value="7">7</option>
+                                      <option value="8">8</option>
+                                      <option value="9">9</option>
+                                      <option value="10">10</option>
+                                      <option value="11">11</option>
+                                      <option value="12">12</option>
+                                    </select>
+                              
+                        </label>
+                    <!-- </div>
+                    <div class="col no-right-padding"> -->
+                         
+                        <label class="item item-input item-select corner" id="payment-exp_year">
+                            <!-- <input type="text" placeholder="EXPIRY YEAR" cc-exp-year ng-model="card.exp_year"> -->
+                                <span>Expiry Year: </span>
+                                    <select ng-model="card.exp_year">
+                                      <option value="2016">2016</option>
+                                      <option value="2017">2017</option>
+                                      <option value="2018">2018</option>
+                                      <option value="2019">2019</option>
+                                      <option value="2020">2020</option>
+                                      <option value="2021">2021</option>
+                                      <option value="2022">2022</option>
+                                      <option value="2023">2023</option>
+                                      <option value="2024">2024</option>
+                                      <option value="2025">2025</option>
+                                      <option value="2026">2026</option>
+                                      <option value="2027">2027</option>
+                                      <option value="2028">2028</option>
+                                      <option value="2029">2029</option>
+                                      <option value="2030">2030</option>
+                                      <option value="2031">2031</option>
+                                      <option value="2032">2032</option>
+                                      <option value="2033">2033</option>
+                                      <option value="2034">2034</option>
+                                      <option value="2035">2035</option>
+                                      <option value="2036">2036</option>
+                                      <option value="2037">2037</option>
+                                      <option value="2038">2038</option>
+                                      <option value="2039">2039</option>
+                                      <option value="2040">2040</option>
+                                      <option value="2041">2041</option>
+                                      <option value="2042">2042</option>
+                                      <option value="2043">2043</option>
+                                      <option value="2044">2044</option>
+                                      <option value="2045">2045</option>
+                                      <option value="2046">2046</option>
+                                      <option value="2047">2047</option>
+                                      <option value="2048">2048</option>
+                                      <option value="2049">2049</option>
+                                      <option value="2050">2050</option>
+                                    </select>
+                        </label>
+                    <!-- </div>
+                </div> -->
+                <label class="item item-input corner" id="payment-cardcvc">
+                    <span>CVC Number: </span>
+                    <input type="text" placeholder="CVC NUMBER" cc-cvc ng-model="card.cvc">
+                </label>
+                <div class="padding text-center">
+                    <button class="button button-balanced" ng-click="onEditSaveTapped(card)" >
+                        Add
+                    </button>
+                </div>
+            </form>
+<!-- <div class="padding">
+<h4 class="text-center white">or</h4><hr><div class="text-center"><img src="../img/all_card_small.png">
+</div></div> -->
+  </ion-content>
+</ion-view>

@@ -1,0 +1,51 @@
+<ion-view title="LOGIN" class="welcome-view">
+    <ion-content  has-header="false" hide-nav-bar="true" scroll="false" padding="true" has-tabs="false" class="welcome">
+      <!-- <div class="logo-welcome">POPii</div> --><!-- </br></br><div class="logo-welcome"></div> --><!-- </br></br></br></br></br> -->
+      <form name="signinForm" novalidate="" ng-submit="login(signinForm)">
+        
+        <div class="list a-input">
+            
+            <label class="item item-input item-stacked-label" id="login-email" ng-class="{ 'has-error-lr' : signinForm.username.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.username.$valid  && signinForm.$submitted}">
+                <i class="icon ion-person"></i><span class="input-label">NAME</span>
+                <input  type="text" 
+                        placeholder="{{'Enter name'}}"
+                        name="username"
+                        ng-model="user.username"
+                        ng-minlength="6"
+                        ng-maxlength="50"
+                        required
+                        class="item item-input bg-transparent white">
+            </label>
+            
+
+            <label class="item item-input item-stacked-label" id="login-password" ng-class="{ 'has-error-lr' : signinForm.password.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.password.$valid  && signinForm.$submitted}">
+                <i class="icon ion-ios-locked-outline ion-android-lock ion-lock-combination"></i><span class="input-label">PASSWORD</span>
+                <input  type="password" 
+                        placeholder="{{'Enter password'}}"
+                        name="password"
+                        ng-model="user.password"
+                        ng-minlength="6"
+                        ng-maxlength="50"
+                        required
+                        class="bg-transparent white">
+            </label>
+            <div class="assertive" ng-show="error.message">{{error.message}}</div>
+        </div>
+        <div class="row"><button class="button button-bar button-dark button-title center" type="submit" name="ENTER">ENTER</button>
+        </div>
+    </form> 
+<div id="social-links">
+                <ul>
+                    <li  ng-click="facebookLogin()"><span class="ifacebook"><img src="img/social-icons/facebook.png"></span><a href="#" class="afacebook">sign in with facebook</a></li>
+                    <!-- <li ng-click="twitterLogin()"><span class="itwitter"><img src="img/social-icons/twitter.png"></span><a href="#" class="atwitter">sign in with twitter</a></li> -->
+                </ul>
+            </div>
+    <div class="row">
+    <div class="col-50 button-title float-left" ng-click="parseRegister()">SignUp</div>
+    <div class="col-50 button-title float-right" ng-click="forgot()">Forgot password</div>
+    </div>
+  </ion-content>
+  <!-- <div id="footer" class="bar bar-footer">
+        <div class="title em-footer-title">© Seated Orders</div>
+    </div> -->
+</ion-view>

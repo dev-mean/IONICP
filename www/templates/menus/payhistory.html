@@ -1,0 +1,62 @@
+<ion-view view-title="Pay History" class="view">
+<div class="mynavbar-header">
+<div class="row">
+<div class="col-10"><button class="naviconimg" menu-toggle="left"></button></div>
+<div class="col-80"><h2 class="head-wide">POPii</h2></div>
+<div class="col-10"><button class="cartimg " ng-click="checkout()"></button></div>
+</div>
+<h2 class="food-title">Pay History</h2>
+</div>
+<ion-content has-header="true" padding="true" overflow-scroll="true" scroll="true" class="mycontent">
+<ion-refresher  pulling-text="Pull to refresh..."  on-refresh="GetData()"></ion-refresher>
+<div class="mynavbar"><!-- <div class="row"><div class="popii_logo"></div></div> -->
+</div> 
+          <br><br>
+<div class="foods">
+ <div ng-show="orders.length<1"><br><br><h2 class="text-center">No orders yet</h2></div>
+<ul>
+      <li>
+
+        <div class="list">
+
+          <ion-item ng-repeat="order in orders" item="item" item-type="item" ng-click="orderDetail(order)" class="item item-thumbnail-left rowheader-noheight"> 
+          <img ng-src="{{order.TheaterImage}}"/><h3 class=" text-right ratingAlignmentDown" >{{(order.OrderStatus==3)?'Completed':'Pending'}} </h3>
+             <h2 class=" item-text-wrap" style="font-weight: bold">{{order.TheaterName}}</h2>
+            <br><h2 class="whiteColor item-text-wrap" style="font-weight: bold">Order #{{order.OrderNumber}}</h2><br>
+            
+            <h3 class=" text-right ratingAlignmentUp" > ${{order.TotalAmount}}</h3>
+            <h2 class=" item-text-wrap"> {{order.MovieName}}  </h2>
+            <h2 class=" item-text-wrap">{{order.updatedAt| date:'dd-MM-yyyy HH:mm'}}</h2>
+          </ion-item>
+
+        </div>
+
+      </li>
+
+    </ul>
+  </div>
+<!-- 
+          <div class="row card bg-red text-middle">
+          <div class="col col-5">Order:</div>
+          <div class="col col-45"><b>Items:</b></div>
+          <div class="col col-20"><b>Theater:</b></div>
+          <div class="col col-20"><b>Movie/Showtime:</b></div>
+          <div class="col col-10"><b>Order Time:</b></div>
+          </div>
+          
+          <div class="card row bg-black white pay_history_items" ng-repeat="order in orders">
+          <div class="col col-5">#{{order.OrderNumber}}</div>
+          <div class="col col-45">
+                    <div class="row"  ng-repeat="item in order.OrderItems">
+                    <div class="col col-10"><h4 class="white">{{ (item.purchaseQuantity) }}</h4></div>
+                    <div class="col col-70"><h4 class="white">{{ item.title }}</h4></div>
+                    <div class="col col-25"><h4 class="white">${{ item.price*item.purchaseQuantity | number:2 }}</h4></div>
+                    </div>
+          </div>
+          <div class="col col-20">{{ order.TheaterName }}</div>
+          <div class="col col-20">{{ order.MovieName }}</div>
+          <div class="col col-10">{{ order.PlacedTime | date:'dd MMM,yyyy HH:mm a'}} 
+          </div>
+          </div>  -->
+  </ion-content>
+</ion-view>

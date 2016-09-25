@@ -1,0 +1,12 @@
+<ion-view title="Signup" >
+<ion-header-bar title="Signup" class="bar-assertive" animation="nav-title-slide-ios7">
+    <h1 class="title">Test</h1>
+</ion-header-bar>
+<ion-content class="bg-black white"  padding="true">
+<div ng-class="{'block-left': $index%2===0 , 'block-right': $index%2!==0}" ng-repeat="productType in productTypes">
+
+ <span>{{$index}}</span>
+ 
+</div>
+</ion-content>
+</ion-view>

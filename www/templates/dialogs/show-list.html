@@ -1,0 +1,20 @@
+<ion-modal-view class="popup-modal text-left">
+<div align-title="middle" class="bar bg-black">
+<h1 class="title">Which show you are watching</h1>
+	<ion-button class="button button-icon icon ion-ios-close-outline" ng-click="leaveAddChangeDialog(0)"></ion-button>
+</div>
+<ion-content padding="true"class="popup-content">
+	<ion-list ng-show="IsShow===0" class="animate-repeat" ng-repeat="Show in Shows">
+  	<ion-item class="item bg-black white" ng-click="setShow(Show)">
+    <img src="{{Show.Image}}" width="100px" height="100px">
+    <h2>{{Show.MovieName}}</h2>
+    </ion-item>
+  	</ion-list>
+
+  	<ion-list ng-show="IsShow===1" class="animate-repeat" ng-repeat="ShowTime in ShowTimes">
+  	<ion-item class="item item-avatar bg-black white" ng-click="setShowTime(ShowTime)">
+    <h2>{{ShowTime}}</h2>
+    </ion-item>
+  	</ion-list>
+</ion-content>
+</ion-modal-view>

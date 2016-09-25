@@ -1,0 +1,6 @@
+<div>
+	<div class='ion-gallery-item row gallery-product-add' ng-repeat='product in products track by $index'  cart-add ng-click='addToCart(product)'>
+		<div class='col-75'>{{addText}} {{product.description}}</div>
+		<div class='col-25'>${{product.price | number:2}}</div>
+	</div>
+</div>

@@ -1,0 +1,53 @@
+<ion-view view-title="Order - Detail" class="view">
+<div class="mynavbar-header">
+<div class="row">
+<div class="col-10"><button class="back" ng-click="back()"></button></div>
+<div class="col-80"><h2 class="head-wide">POPii</h2></div>
+<div class="col-10"><button class="cartimg " ng-click="checkout()"></button></div>
+</div>
+</div>
+<ion-content has-header="true" padding="true" class="mycontent">
+<div class="mynavbar"><!-- <div class="row"><div class="popii_logo"></div></div> -->
+<h2 class="food-title">Order - Detail</h2></div> 
+          <br><br>
+<div class="foods">
+  <div class="row">
+  <div class="col col-40 white">Date : {{order.updatedAt| date:'dd-MM-yyyy HH:mm'}}</div>
+  </div>
+  <hr>
+  <div class="row">
+  <div class="col col-10"><h5 class="white">Quantity</h5></div>
+    <div class="col col-60"><h5 class="white">Item Name</h5></div>
+    <div class="col col-30"><h5 class="white">Price</h5></div>
+    </div>
+    <hr>
+  <div class="row"  ng-repeat="item in order.OrderItems">
+    <div class="col col-10"><h5 class="white">{{ (item.purchaseQuantity) }}</h5></div>
+    <div class="col col-60"><h5 class="white">{{ item.title }}</h5></div>
+    <div class="col col-30"><h5 class="white">${{ item.price*item.purchaseQuantity | number:2 }}</h5></div>
+  </div>
+  <hr>
+    <div class="row">
+      <div class="col col-10"><h5 class="white"></h5></div>
+      <div class="col col-60"><h5 class="white">Total </h5></div>
+      <div class="col col-30"><h5 class="white">${{ PaidTotalAmount  | number:2 }}</h5></div>
+    </div>
+    <div class="row">
+      <div class="col col-10"><h5 class="white"></h5></div>
+      <div class="col col-60"><h5 class="white">Tax</h5></div>
+      <div class="col col-30"><h5 class="white">${{ order.TaxAmount  | number:2 }}</h5></div>
+    </div>
+    <div class="row">
+      <div class="col col-10"><h5 class="white"></h5></div>
+      <div class="col col-60"><h5 class="white">Discount</h5></div>
+      <div class="col col-30"><h5 class="white">${{ order.DiscountAmount  | number:2 }}</h5></div>
+    </div>     <hr>
+    <div class="row">
+      <div class="col col-10"><h5 class="white"></h5></div>
+      <div class="col col-60"><h5 class="white">Paid Amount</h5></div>
+      <div class="col col-30"><h5 class="white">${{ order.TotalAmount  | number:2 }}</h5></div>
+    </div>
+    <hr>
+</div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,28 @@
+<ion-view view-title="Showtime" class="view">
+<div class="mynavbar-header">
+<div class="row">
+<div class="col-10"><button class="naviconimg" menu-toggle="left"></button></div>
+<div class="col-80"><h2 class="head-wide">POPii</h2></div>
+<div class="col-10"><button class="cartimg " ng-click="checkout()"></button></div>
+</div>
+</div>
+<ion-content has-header="true" padding="true" class="mycontent">
+  <ion-refresher  pulling-text="Pull to refresh..."  on-refresh="GetData()"></ion-refresher>
+  <div class="mynavbar"><!-- <div class="row"><div class="popii_logo"></div></div> -->
+<h2 class="food-title">Showtime</h2></div> 
+	<ion-list ng-repeat="Show in Shows">
+	<h4 class="white">{{Show.MovieName}}</h4>
+	 	<ion-item class="item bg-black white"  ng-click="loadFoods(Show.ShowID)">
+	 	<div class="row">
+		  	<div class="col col-70">
+		  		<iframe width="170" height="100" ng-src="{{Show.YoutubeURL |trustUrl}}" frameborder="0"></iframe>
+		  		</div>
+		  		<div class="{'rating-1':Show.Rating===1;'rating-2':Show.Rating===2;'rating-3':Show.Rating===3;'rating-4':Show.Rating===4;'rating-5':Show.Rating===5;"></div>
+			  <div class="col col-30"><div ng-repeat="ShowTime in Show.ShowTime">
+		    <p>{{ShowTime}}</p>
+			</div></div>
+		</div>
+	</ion-item>
+	  	<ion-list>
+  </ion-content>
+</ion-view>

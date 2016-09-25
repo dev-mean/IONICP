@@ -1,0 +1,34 @@
+<ion-view id="profile" title="RESET PASSWORD" class="view">
+<ion-header-bar title="RESET PASSWORD" class="bar-assertive" animation="nav-title-slide-ios7">
+      <button class="button icon ion-arrow-left-a" ng-click='back()'></button>
+        <h1 class="title">Forget Password</h1>
+</ion-header-bar>
+<ion-content class="bg-black white"  has-header="true" has-tabs="true" padding="true">
+	<div ng-show="!state.success">
+        <form name="forgotForm" novalidate="" ng-submit="onResetTapped(forgotForm.$invalid)">
+	        <div class="list">
+	            	<label class="item item-input" 
+	                    ng-class="{ 'has-error-lr' : forgotForm.email.$invalid  && forgotForm.$submitted, 'valid-lr' : forgotForm.email.$valid  && forgotForm.$submitted}">                
+	                <input type="email"
+	                       name="email"
+	                        placeholder="EMAIL"
+	                       ng-model="user.email" 
+	                       ng-minlength="6" 
+	                       ng-maxlength="50" 
+	                       required>
+	              </label>
+	        </div>
+	        <div class="assertive" ng-show="error.message">{{error.message}}</div>
+	        <button class="button button-block button-positive white" ng-click="onResetTapped()">
+	            RESET PASSWORD
+	        </button>	    	
+		</form>
+	</div>
+   <div ng-show="state.success">
+        <h3 >An email has been sent to you with instructions on resetting your password.</h3>
+        <button class="button button-clear button-energized black" ng-click="onLoginTapped()">
+            {{'LOGIN'}}
+        </button>
+    </div>
+    </ion-content>
+</ion-view>

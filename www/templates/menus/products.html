@@ -1,0 +1,18 @@
+<ion-view  title="{{ ProductTypeName }}" right-buttons="rightButtons" class="view">
+<div class="mynavbar-header">
+<div class="row">
+<div class="col-10"><button class="back" ng-click="back()"></button></div>
+<div class="col-80"><h2 class="head-wide">POPii</h2></div>
+<div class="col-10"><button class="cartimg " ng-click="checkout()"></button></div>
+</div>
+</div>
+<ion-content has-header="true" padding="true" class="mycontent">
+  <ion-refresher  pulling-text="Pull to refresh..."  on-refresh="GetData()"></ion-refresher>
+<div class="mynavbar"><div class="row"><div class="popii_logo"></div></div>
+<h2 class="food-title">{{ProductTypeName}}</h2></div> 
+<ion-item ng-repeat="product in productsitem" item="item" item-type="item item-icon-left" ng-click="loadProductSubTypeMenu(product)"  class="item  bg-black rowheader white corner">
+              <h1 class="food-item-title text-center">{{ product.ProductName }}</h1>
+             </ion-item>
+    </ion-list> 
+  </ion-content>
+</ion-view>

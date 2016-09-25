@@ -1,0 +1,16 @@
+<ion-modal-view class="popup-modal text-left">
+<div align-title="middle" class="bar bg-black">
+<h1 class="title">Select A Theater</h1>
+	<ion-button class="button button-icon icon ion-ios-close-outline" ng-click="leaveAddChangeDialog(1)"></ion-button>
+</div>
+<ion-content padding="true"class="popup-content">
+	<ion-list class="animate-repeat" ng-repeat="theater in Theaters">
+  	<ion-item class="item bg-black white" ng-click="setTheater(theater)">
+    <img src="{{theater.Image}}"  width="220px">
+    <h2>{{theater.TheaterName}}</h2>
+    <p>{{theater.Address}}</p>
+    <p>{{theater.Distance}} Miles</p>
+    </ion-item>
+  	</ion-list>
+</ion-content>
+</ion-modal-view>

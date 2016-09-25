@@ -1,0 +1,160 @@
+<ion-view title="Signup" >
+<ion-header-bar title="Signup" class="bar-assertive" animation="nav-title-slide-ios7">
+      <button class="button icon ion-arrow-left-a" ng-click='back()'></button>
+        <h1 class="title">Sign Up</h1>
+</ion-header-bar>
+<ion-content class="bg-black white"  padding="true">
+<form  angular-validator-submit="onRegisterTapped()" name="myForm" class="form-horizontal" novalidate angular-validator>
+<div style="margin-bottom: 10px;font-size:20px;"  >Personal Info</div>
+<ion-list>
+  <input
+   	type = "text"
+   	name = "firstName"
+   	placeholder="First Name"
+   	class = "form-control input-lg"
+   	ng-model = "user.firstName"
+   	validator = "myCustomValidator(user.firstName)"
+   	validate-on="dirty"
+   	required
+  		>
+
+  <div class="spacer" style="height: 10px;"></div>
+
+  <input
+   	type = "text"
+   	name = "lastName"
+   	placeholder="Last Name"
+   	class = "form-control input-lg"
+   	ng-model = "user.lastName"
+   	validator = "myCustomValidator(user.lastName)"
+   	validate-on="dirty"
+   	required
+  		>
+<div class="spacer" style="height: 10px;"></div>
+
+  <input
+   	type = "number"
+   	name = "ZIP"
+   	placeholder="ZIP Code"
+   	class = "form-control input-lg"
+   	ng-model = "user.zip"
+   	validator = "myZipValidator(user.zip)"   	
+  	validator = "zipValidator(user.zip) === true"
+  	invalid-message = "zipValidator(user.zip)"
+   	validate-on="dirty"
+   	required
+  		>
+</ion-list>
+<div style="margin-bottom: 10px;margin-top: 10px;font-size:20px;"  >Account Info</div>
+<ion-list>
+  <div class="spacer" style="height: 10px;"></div>
+
+  <input
+  		type = "email"
+  		placeholder="Email"
+  		ng-model = "user.email"
+  		name = "emailAddress"
+  		class = "form-control input-lg"
+  		invalid-message="'Thats not a real email address'"
+  		required-message="'Email is required'"
+  		validate-on="dirty"
+  		required
+  >
+  <div class="spacer" style="height: 10px;"></div>
+
+  <input
+  		type = "email"
+  		placeholder="Confirm Email"
+  		ng-model = "user.confirmEmail"
+  		name = "emailAddress"
+  		class = "form-control input-lg"
+  		validator = "user.email === user.confirmEmail"
+  		validate-on="dirty"
+  		invalid-message = "'Emails do not match!'"
+  		required
+  >
+
+  <div class="spacer" style="height: 10px;"></div>
+
+  <input
+  		type="password"
+  		placeholder="Password"
+  		ng-model="user.password"
+  		name = "password"
+  		class = "form-control input-lg"
+  		validator = "passwordValidator(user.password) === true"
+  		invalid-message = "passwordValidator(user.password)"
+  		validate-on="dirty"
+  		required
+  		>
+
+  <div class="spacer" style="height: 10px;"></div>
+
+  <input type = "password"
+   name = "confirmPassword"
+   placeholder="Confirm Password"
+   class = "form-control input-lg"
+   ng-model = "user.confirmPassword"
+   validator = "user.password === user.confirmPassword"
+   validate-on="dirty"
+   invalid-message = "'Passwords do not match!'"
+   required
+  	>
+	<div class="spacer" style="height: 10px;"></div>
+</ion-list>
+<ion-list>
+	<div style="text-align: center;margin-bottom: 10px;"  >Birthday! Get a special present from us!</div>
+
+	<select name="month" id="month" ng-model="dob.M" ng-change="daysgeneration()" 
+		class = "form-control-dob"
+		>
+	  <option value=''>Month</option>
+	  <option value="1">January</option>
+	  <option value="2"> February</option>
+	  <option value="3"> March</option>
+	  <option value="4"> April</option>
+	  <option value="5"> May</option>
+	  <option value="6"> June</option>
+	  <option value="7"> July</option>
+	  <option value="8"> August</option>
+	  <option value="9"> September</option>
+	  <option value="10"> October</option>
+	  <option value="11"> November</option>
+	  <option value="12">December</option>
+	</select> 
+	<select name="day" id="day"
+		ng-init=""
+	      ng-options="option.name for option in days track by option.id"
+	      ng-model="dob.D" class = "form-control-dob">
+	  <option value=''>Day</option>
+	  
+	</select>
+	<select name="year" id="year"
+	      ng-options="option.name for option in years track by option.id"
+	      ng-model="dob.Y" class = "form-control-dob">
+	      	<option value=''>Year</option>
+	      </select>
+	</ion-list>
+	<ion-list>
+	<div style="text-align:left;margin-bottom: 10px;margin-top: 10px;font-size:20px;"  >Term of Use</div>
+	<div style="text-align: left;margin-bottom: 10px;margin-top: 10px;vertical-align:middle"  >
+	<div class="row">
+	<div class="col-90">
+	I agree to the terms & conditions
+	</div>
+	<div class="col-10">
+	<label  class="toggle ">
+	   <input type="checkbox" ng-model="agreed">
+	   <div class="track">
+	     <div class="handle"></div>
+	   </div>
+	</label>
+	</div>
+	</div></div>
+	<a href="http://www.seatedorders.com/#!terms/pa4ek">Terms & Condition</a>
+ 		<button ng-show="agreed" class="button button-block button-dark bg-grey b">Sign Up</button>
+ 	</ion-list>
+   </form>
+
+    </ion-content>
+</ion-view>

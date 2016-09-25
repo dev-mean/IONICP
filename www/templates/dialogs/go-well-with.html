@@ -1,0 +1,29 @@
+<ion-modal-view class="block-popup-modal">
+<div align-title="middle" class="bar bg-black">
+<h1 class="title">Goes well with</h1>
+	<ion-button class="button button-icon icon ion-ios-close-outline" ng-click="leaveGoWellWithDialog()"></ion-button>
+</div>
+<ion-content padding="true" class="block-popup-content bg-black">
+<div ng-class="{'block-left': $index%2===0 , 'block-right': $index%2!==0}" ng-repeat="productType in productTypes" ng-click="loadProducts('{{productType.ProductTypeID}}')">
+
+<span class="center"><table>
+	<tr>
+	<td><img width="50px" height="50px" src="{{productType.ProductTypeImage}}"></img></td>
+	<tr></tr>
+	<td>{{ productType.ProductTypeName }}</td>
+	</tr>
+</table></span>
+</div>
+</ion-content>
+</ion-modal-view>
+
+<!-- 
+<table>
+	<tr>
+	<td><img width="50px" height="50px" src="{{productType.ProductTypeImage}}"></img></td>
+	<tr></tr>
+	<td>{{ productType.ProductTypeName }}</td>
+	</tr>
+</table>
+
+-->
